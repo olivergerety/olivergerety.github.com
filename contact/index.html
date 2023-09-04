@@ -5,29 +5,45 @@
     <style>
         html {
             background-color: rgb(0, 0, 0);
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        body {
+            margin: 0; /* Remove default margin */
+        }
+
+        .page {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content horizontally */
+            justify-content: center; /* Center content vertically */
+            min-height: 100vh; /* Ensure the page fills the viewport height */
+        }
+
+        .tiles {
+            text-align: center;
         }
 
         .container {
-            display:flex;
+            display: flex;
             justify-content: center;
         }
 
         .card {
-            margin:20px;
-            border-radius: 25px 25px 20px 20px; 
+            margin: 20px;
+            border-radius: 25px 25px 20px 20px;
             background-color: white;
             box-shadow: 0px 0px 50px 20px rgba(255, 255, 255, 0.3);
             width: 300px;
-            text-align: center;
-            font-family: arial;
             transition: 0.3s;
         }
 
-        .card button {
+        .cardbutton {
             border-radius: 20px 20px 0px 0px;
             border: none;
             outline: 0;
-            padding: 12px;
             color: rgb(255, 255, 255);
             text-align: center;
             cursor: pointer;
@@ -36,9 +52,16 @@
             padding: 15px;
         }
 
-        /* .card:hover {
-            box-shadow: 0px 0px 50px 20px rgba(21, 0, 255, 0.8);
-        } */
+        /* Hover styles for cards */
+        .yellowhov:hover {
+            box-shadow: 0px 0px 50px 20px rgba(255, 247, 0, 0.5);
+        }
+        .greenhov:hover {
+            box-shadow: 0px 0px 50px 20px rgba(0, 94, 20, 1);
+        }
+        .bluehov:hover {
+            box-shadow: 0px 0px 50px 20px rgba(0, 0, 121, 1);
+        }
 
         .text {
             color: gray;
@@ -46,43 +69,114 @@
             padding: 20px;
         }
 
-        .blackbg {background-color: rgb(93, 90, 0);}
+        .aboutcard {
+            /* margin: 20px; */
+            border-radius: 25px 25px 20px 20px;
+            min-width: 110px;
+            transition: 0.3s;
+        }
+
+        .aboutbutton {
+            border-radius: 20px;
+            border: none;
+            outline: 0;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 20px;
+            padding: 15px;
+            margin-bottom: 40px;
+            transition: 0.3s;
+        }
+
+        .aboutbutton:hover {
+            box-shadow: 0px 0px 50px 20px rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+
+        .blackbg {background-color: white;}
+        .yellowbg {background-color: rgb(93, 90, 0);}
         .greenbg {background-color: #005e14;}
         .bluebg {background-color: rgb(0, 0, 121);}
 
-        .blackhov:hover {box-shadow: 0px 0px 50px 20px rgba(255, 247, 0, 0.5);}
-        .greenhov:hover {box-shadow: 0px 0px 50px 20px rgba(0, 94, 20, 1);}
-        .bluehov:hover {box-shadow: 0px 0px 50px 20px rgba(0, 0, 121, 1);}
-
-        .tiles {
-            margin: 0;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+        h1 {
+            font-size: 50px;
+            margin: 10px;
         }
 
+        p {
+            font-size: 20px;
+            margin-top: 0px;
+            max-width: 350px;
+        }
     </style>
 </head>
 <body>
-    <div class="tiles">
-    <div class="container"><div class="card blackhov">
-        <form action="mailto:oliver@dormand.com">
-            <button type="submit" class="blackbg" onclick="">Email</button>
-        </form>
-        <div class="text">oliver@dormand.com</div>
-    </div></div>
+    <div class="page">
+        <div class="tiles">
+            <h1>Oliver Gerety</h1>
+            <p>Head of Technical Theater / Production Company at the Perse School Cambridge.</p>
+            
+            <div class="container">
+                <div class="aboutcard blackhov">
+                    <a href="https://linktr.ee/olivergerety"><button class="blackbg aboutbutton">About</button></a>
+                    <!-- <div class="text">oliver@dormand.com</div> -->
+                </div>
+            </div>
+        </div>
 
-    <div class="container"><div class="card greenhov">
-        <button class="greenbg" onclick="href='mailto:oliver@dormand.com'">WhatsApp</button>
-        <div class="text">+44 7307 860534</div>
-    </div></div>
+        <div class="tiles">
+            <div class="container">
+                <div class="card yellowhov">
+                    <button onclick="copyText('oliver@dormand.com')" class="yellowbg cardbutton">Email</button>
+                    <div class="text">oliver@dormand.com</div>
+                </div>
+            </div>
 
-    <div class="container"><div class="card bluehov">
-        <button class="bluebg" onclick="href='mailto:oliver@dormand.com'">SMS / Phone</button>
-        <div class="text">+44 7480 998612</div>
-    </div></div>
-</div>
+            <div class="container">
+                <div class="card greenhov">
+                    <button onclick="copyText('+44 7307 860534')" class="greenbg cardbutton">WhatsApp</button>
+                    <div class="text">+44 7307 860534</div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="card bluehov">
+                    <button onclick="copyText('+44 7480 998612')" class="bluebg cardbutton">SMS / Phone</button>
+                    <div class="text">+44 7480 998612</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyText(text) {
+            navigator.clipboard.writeText(text);
+            showAlert();
+        }
+
+        function showAlert() {
+            const alertBox = document.createElement('div');
+            alertBox.textContent = 'Text copied';
+            alertBox.style.backgroundColor = 'green';
+            alertBox.style.color = 'white';
+            alertBox.style.position = 'fixed';
+            alertBox.style.top = '10px';
+            alertBox.style.left = '50%';
+            alertBox.style.transform = 'translateX(-50%)';
+            alertBox.style.padding = '10px 20px';
+            alertBox.style.borderRadius = '5px';
+            alertBox.style.zIndex = '9999';
+            document.body.appendChild(alertBox);
+
+            setTimeout(() => {
+                document.body.removeChild(alertBox);
+            }, 2000); // Remove the alert after 2 seconds (2000 milliseconds)
+        }
+
+    </script>
+
 </body>
 </html>
