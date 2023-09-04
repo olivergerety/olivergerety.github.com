@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Oliver Gerety</title>
+    <style>
+        html {
+            background-color: rgb(0, 0, 0);
+        }
+
+        .container {
+            display:flex;
+            justify-content: center;
+        }
+
+        .card {
+            margin:20px;
+            border-radius: 25px 25px 20px 20px; 
+            background-color: white;
+            box-shadow: 0px 0px 50px 20px rgba(255, 255, 255, 0.3);
+            width: 300px;
+            text-align: center;
+            font-family: arial;
+            transition: 0.3s;
+        }
+
+        .card button {
+            border-radius: 20px 20px 0px 0px;
+            border: none;
+            outline: 0;
+            padding: 12px;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 28px;
+            padding: 15px;
+        }
+
+        /* .card:hover {
+            box-shadow: 0px 0px 50px 20px rgba(21, 0, 255, 0.8);
+        } */
+
+        .text {
+            color: gray;
+            font-size: 22px;
+            padding: 20px;
+        }
+
+        .blackbg {background-color: rgb(93, 90, 0);}
+        .greenbg {background-color: #005e14;}
+        .bluebg {background-color: rgb(0, 0, 121);}
+
+        .blackhov:hover {box-shadow: 0px 0px 50px 20px rgba(255, 247, 0, 0.5);}
+        .greenhov:hover {box-shadow: 0px 0px 50px 20px rgba(0, 94, 20, 1);}
+        .bluehov:hover {box-shadow: 0px 0px 50px 20px rgba(0, 0, 121, 1);}
+
+        .tiles {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="tiles">
+    <div class="container"><div class="card blackhov">
+        <form action="mailto:oliver@dormand.com">
+            <button type="submit" class="blackbg" onclick="">Email</button>
+        </form>
+        <div class="text">oliver@dormand.com</div>
+    </div></div>
+
+    <div class="container"><div class="card greenhov">
+        <button class="greenbg" onclick="href='mailto:oliver@dormand.com'">WhatsApp</button>
+        <div class="text">+44 7307 860534</div>
+    </div></div>
+
+    <div class="container"><div class="card bluehov">
+        <button class="bluebg" onclick="href='mailto:oliver@dormand.com'">SMS / Phone</button>
+        <div class="text">+44 7480 998612</div>
+    </div></div>
+</div>
+</body>
+</html>
